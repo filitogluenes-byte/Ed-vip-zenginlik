@@ -3,55 +3,81 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        :root { --gold: #D4AF37; --black: #050505; }
-        body { margin: 0; background: var(--black); color: white; font-family: 'Playfair Display', serif; overflow-x: hidden; }
+        :root { --gold: #C5A021; --black: #080808; }
+        body { margin: 0; background: var(--black); color: #eee; font-family: 'Georgia', serif; }
 
-        /* Lüks Giriş Ekranı */
-        #gatekeeper {
+        /* Arka Plan Video/Efekt Alanı */
+        #bg-effect {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            z-index: -1;
+        }
+
+        /* Giriş Paneli */
+        .entry-screen {
             height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; transition: 1s;
+            justify-content: center; align-items: center; text-align: center;
         }
         .royal-seal {
-            width: 100px; height: 100px; border: 2px solid var(--gold);
+            width: 110px; height: 110px; border: 1px solid var(--gold);
             border-radius: 50%; display: flex; justify-content: center;
-            align-items: center; font-weight: bold; font-size: 2rem;
-            box-shadow: 0 0 20px var(--gold); cursor: pointer;
-            animation: pulse 2s infinite;
+            align-items: center; color: var(--gold); font-size: 1.8rem;
+            cursor: pointer; box-shadow: 0 0 25px rgba(197, 160, 33, 0.2);
+            transition: 0.8s ease;
         }
+        .royal-seal:hover { box-shadow: 0 0 50px var(--gold); transform: rotate(360deg); }
 
-        /* Ana İçerik */
-        #empire-content { display: none; padding: 20px; text-align: center; }
-        .car-card { border: 1px solid #222; margin-bottom: 20px; border-radius: 10px; overflow: hidden; }
-        .stock-bar { position: fixed; bottom: 0; background: var(--gold); color: black; width: 100%; padding: 5px; font-weight: bold; }
-
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        /* İçerik Kartları */
+        .content-card {
+            background: #111; border: 1px solid #222; margin: 20px;
+            padding: 20px; border-radius: 5px; border-left: 3px solid var(--gold);
+        }
+        
+        .stock-ticker {
+            position: fixed; bottom: 0; width: 100%; background: var(--gold);
+            color: black; padding: 10px; font-weight: bold; font-family: monospace;
+        }
     </style>
 </head>
 <body>
 
-<div id="gatekeeper" onclick="enterEmpire()">
-    <div class="royal-seal">ED</div>
-    <p style="margin-top:20px; color:var(--gold);">Giriş Yapmak İçin Dokunun</p>
+<div id="bg-effect"></div>
+
+<div id="login-zone" class="entry-screen">
+    <div class="royal-seal" onclick="accessEmpire()">ED</div>
+    <p style="color: var(--gold); margin-top: 25px; letter-spacing: 5px; font-size: 0.8rem;">PRESTİJİ HİSSET</p>
 </div>
 
-<div id="empire-content">
-    <h1 style="color:var(--gold);">ENES DEVA IMPERIUM</h1>
-    
-    <div class="car-card">
-        <img src="https://via.placeholder.com/400x200?text=Mercedes+AMG" style="width:100%;">
-        <h3>Mercedes-Benz AMG G63</h3>
-        <a href="https://wa.me/905518329861" style="color:var(--gold);">Talep Et</a>
+<div id="main-empire" style="display:none; padding-bottom: 60px;">
+    <header style="padding: 40px; text-align: center; border-bottom: 1px solid #222;">
+        <h1 style="color: var(--gold); margin: 0; letter-spacing: 2px;">ENES DEVA</h1>
+        <p style="font-size: 0.7rem; color: #888;">GLOBAL ASSET MANAGEMENT</p>
+    </header>
+
+    <div class="content-card">
+        <h3 style="color: var(--gold);">🏛️ Modern Ofis Çözümleri</h3>
+        <p>Dünya standartlarında, teknoloji ile harmanlanmış prestijli çalışma alanları.</p>
+        <a href="https://wa.me/905518329861" style="color: var(--gold); text-decoration: none;">Detaylı Bilgi →</a>
     </div>
 
-    <div class="stock-bar">
-        USD: 31.45 ↑ | GOLD: 2450.10 ↓ | BTC: 64,200$ ↑
+    <div class="content-card">
+        <h3 style="color: var(--gold);">🎨 Sanat & Antika Koleksiyonu</h3>
+        <p>Değeri her geçen gün artan, sadece size özel seçilmiş nadide eserler.</p>
+        <a href="https://wa.me/905518329861" style="color: var(--gold); text-decoration: none;">Koleksiyonu İncele →</a>
+    </div>
+
+    <div class="stock-ticker">
+        ONS ALTIN: 2,158$ ▲ | BIST: 9.120 ▼ | USD/TRY: 31,85 | BTC: 69.400$ ▲
     </div>
 </div>
 
 <script>
-    function enterEmpire() {
-        document.getElementById('gatekeeper').style.display = 'none';
-        document.getElementById('empire-content').style.display = 'block';
+    function accessEmpire() {
+        document.getElementById('login-zone').style.opacity = '0';
+        setTimeout(() => {
+            document.getElementById('login-zone').style.display = 'none';
+            document.getElementById('main-empire').style.display = 'block';
+        }, 1000);
     }
 </script>
 
