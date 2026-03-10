@@ -1,31 +1,41 @@
-<div class="luxury-hero">
-    <h1 class="fade-in">EXCELLENCE BY ENES DEVA</h1>
-    <p class="subtitle">Sınırların Ötesinde Bir Prestij Deneyimi</p>
-    <button class="gold-btn">Ayrıcalıklar Dünyasına Gir</button>
+<div class="imperium-container">
+    <nav class="side-menu">
+        <div class="brand">ENES DEVA IMPERIUM</div>
+        <ul>
+            <li><i class="icon-car"></i> Garaj</li>
+            <li><i class="icon-home"></i> Gayrimenkul</li>
+            <li><i class="icon-chart"></i> Finans</li>
+            <li><i class="icon-service"></i> VIP Hizmet</li>
+        </ul>
+    </nav>
+
+    <main class="content-area">
+        <header>
+            <h2>Hoş Geldiniz, Sayın Üye</h2>
+            <div class="status-gold">GOLD STATUS ACTIVE</div>
+        </header>
+
+        <section class="grid-system">
+            <div class="card card-dark">Bugünkü Kazanç: 12,540$</div>
+            <div class="card card-gold">Aktif Yatırımlar: 8 Proje</div>
+            <div class="card card-dark">Yeni Bildirimler: 3 Talep</div>
+        </section>
+    </main>
 </div>
 
 <style>
-    body { background-color: #0a0a0a; color: #d4af37; font-family: 'Playfair Display', serif; }
-    .luxury-hero {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 2px solid #d4af37;
-        margin: 20px;
-    }
-    .gold-btn {
-        background: transparent;
-        border: 1px solid #d4af37;
-        color: #d4af37;
-        padding: 15px 40px;
-        cursor: pointer;
-        transition: 0.5s;
-    }
-    .gold-btn:hover {
-        background: #d4af37;
-        color: #000;
-        box-shadow: 0 0 20px #d4af37;
-    }
+    :root { --gold: #C5A021; --black: #0F0F0F; --gray: #1A1A1A; }
+    body { background: var(--black); color: white; font-family: 'Poppins', sans-serif; margin: 0; }
+    
+    .imperium-container { display: flex; height: 100vh; }
+    .side-menu { width: 250px; background: var(--gray); border-right: 1px solid var(--gold); padding: 20px; }
+    .brand { color: var(--gold); font-weight: bold; font-size: 1.5rem; margin-bottom: 50px; }
+    
+    .content-area { flex: 1; padding: 40px; }
+    .status-gold { color: var(--gold); border: 1px solid var(--gold); padding: 5px 15px; border-radius: 20px; width: fit-content; }
+    
+    .grid-system { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 50px; }
+    .card { padding: 30px; border-radius: 15px; border: 1px solid rgba(197, 160, 33, 0.2); transition: 0.3s; }
+    .card-gold { background: linear-gradient(135deg, #C5A021, #8E6E12); color: black; font-weight: bold; }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(197, 160, 33, 0.2); }
 </style>
